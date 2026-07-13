@@ -4,7 +4,7 @@
   "description": "Formal logic of legal reasoning on Russian law: legal norm structure, subsumption (applying a norm to facts as a syllogism), interpretation methods, the law/fact distinction, and logical unambiguity of contract wording. Modes: legal review (pravo-logika:review), argument fixing, and clause-check. Not a source of law — statutes and case law are flagged for human verification, never asserted from memory. Builds on the classical logic engine distilled from G. Chelpanov's textbook.",
   "author": {
     "name": "Sofya Smirnova",
-    "url": "https://moire-ai.tech"
+    "url": "https://damascus-ink.ru"
   },
   "homepage": "https://github.com/sky-magenta/pravo-logika",
   "repository": "https://github.com/sky-magenta/pravo-logika",
@@ -25,6 +25,6 @@
     "shortDescription": "Legal-reasoning logic (RU): review & fix legal argumentation, check subsumption, interpretation, contract wording.",
     "developerName": "Sofya Smirnova",
     "category": "Legal",
-    "websiteURL": "https://moire-ai.tech"
+    "websiteURL": "https://damascus-ink.ru"
   }
 }
