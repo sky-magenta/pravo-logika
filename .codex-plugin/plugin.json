@@ -21,7 +21,7 @@
   ],
   "skills": "./",
   "interface": {
-    "displayName": "pravo-logika",
+    "displayName": "ЛогИИка для юриста (pravo-logika)",
     "shortDescription": "Legal-reasoning logic (RU): review & fix legal argumentation, check subsumption, interpretation, contract wording.",
     "developerName": "Sofya Smirnova",
     "category": "Legal",
