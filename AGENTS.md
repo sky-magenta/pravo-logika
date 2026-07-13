@@ -24,7 +24,7 @@
 
 ## Перед публикацией
 
-- **Подтвердить GitHub-username.** Во всех манифестах, `README.md`, `THIRD_PARTY_NOTICES.md` и `docs/index.html` подставлен предполагаемый слаг `sofya-smirnova` (личный аккаунт). Перед публикацией заменить его на реальный username единым поиском-заменой по строке `sofya-smirnova`, если он иной.
+- **GitHub-username подтверждён:** `sky-magenta` (личный аккаунт) — подставлен во все манифесты и `docs/index.html`. Целевой репозиторий — `github.com/sky-magenta/pravo-logika` (новый, НЕ форк logika: у форка чужая история и имя, а атрибуция оформлена через LICENSE/THIRD_PARTY_NOTICES).
 - Проверить, что примеры не содержат реальных норм, поданных как факт (все — под флагом либо в условной форме).
 - Убедиться, что `THIRD_PARTY_NOTICES.md` и `LICENSE` сохраняют атрибуцию исходного `logika` (Pavel Rykov, MIT) и Челпанова (public domain).
 - Проверить лендинг `docs/index.html`: ссылки на moire-ai.tech, damascus-ink.ru и репозиторий актуальны; при желании включить GitHub Pages (Settings → Pages → ветка, папка `/docs`).
