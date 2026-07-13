@@ -40,7 +40,7 @@ pravo-logika/
 ├─ docs/
 │  ├─ konspekt.md               # конспект первоисточника по логике (Челпанов)
 │  └─ index.html                # лендинг проекта (Damascus Ink; можно включить GitHub Pages)
-├─ evals/                       # E2E-тесты: 100 размеченных примеров + прогон через API
+├─ evals/                       # E2E-тесты: 133 размеченных примера + прогон через API
 │  ├─ cases.jsonl               # 133 примера (defect/clean, все режимы, каталог + M&A + hard)
 │  ├─ build_cases.py            # генератор cases.jsonl
 │  ├─ validate_cases.py         # офлайн-проверка структуры и покрытия (pytest/CI)
