@@ -1,0 +1,7 @@
+# Normalize line endings: text files stored as LF in the repo.
+* text=auto eol=lf
+
+# Explicitly treat known text types as text.
+*.md    text eol=lf
+*.json  text eol=lf
+*.html  text eol=lf

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pravo-logika — логика правового рассуждения · Damascus Ink</title>
+<meta name="description" content="pravo-logika — открытый skill (MIT) для проверки формы юридического рассуждения на материале права РФ: субсумпция, толкование, однозначность договора. Проект Damascus Ink · moire-ai.tech.">
+<meta property="og:title" content="pravo-logika — логика правового рассуждения">
+<meta property="og:description" content="Проверяет форму юридического вывода, как логик проверяет силлогизм. Не источник права. Проект Damascus Ink · moire-ai.tech.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#0F121A; --bg-top:#161C2A;
+    --s1:#191E2B; --s2:#202637; --s3:#2A3146; --border:#2A3043;
+    --cream:#F2EEE6; --text:#C9CDD8; --muted:#9197A6;
+    --gold:#E8B84A; --gold-hi:#F4CB68; --on-gold:#0F121A;
+    --ga:#EE9CB0; --gb:#EEA980; --gc:#F0C24E; --magenta:#CE80B8;
+    --serif:"Jun","Iowan Old Style",Georgia,"Times New Roman",serif;
+    --sans:"Inter",system-ui,"Segoe UI",Roboto,sans-serif;
+    --mono:"JetBrains Mono",Consolas,monospace;
+    --maxw:940px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    background-image:linear-gradient(180deg,var(--bg-top) 0%,var(--bg) 460px);
+    background-repeat:no-repeat;
+  }
+  a{color:var(--gold); text-decoration:none}
+  a:hover{color:var(--gold-hi)}
+  ::selection{background:rgba(232,184,74,.24)}
+  ::-webkit-scrollbar{width:11px;height:11px}
+  ::-webkit-scrollbar-thumb{background:var(--s3);border-radius:8px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+  h1,h2,h3{font-family:var(--serif); color:var(--cream); font-weight:600; line-height:1.2}
+  h2{font-size:24px; margin:0 0 6px}
+  h3{font-size:19px; margin:0 0 6px}
+  p{margin:0 0 14px}
+  .muted{color:var(--muted)}
+  .hair{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6;border:0;margin:0}
+
+  /* Header */
+  header.top{padding:26px 0 0}
+  .nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .brandmark{font-family:var(--serif);font-size:20px;font-weight:600;
+    background:linear-gradient(95deg,var(--ga),var(--gb),var(--gc));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav .spacer{flex:1 1 auto}
+  .nav a.navlink{color:var(--muted);font-size:14px}
+  .nav a.navlink:hover{color:var(--cream)}
+
+  /* Hero */
+  .hero{padding:52px 0 40px}
+  .eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .wordmark{font-family:var(--serif);font-weight:600;font-size:clamp(44px,9vw,76px);line-height:1;margin:0 0 18px;
+    background:linear-gradient(95deg,var(--ga),var(--gb),var(--gc));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:var(--text);max-width:660px;margin:0 0 26px}
+  .lede b{color:var(--cream);font-weight:600}
+  .chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px}
+  .chip{font-size:12.5px;padding:5px 12px;border:1px solid var(--border);border-radius:999px;color:var(--muted);background:var(--s1)}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:15px;font-weight:600;
+    padding:11px 22px;border-radius:999px;background:var(--gold);color:var(--on-gold);border:1px solid var(--gold);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.28);cursor:pointer;transition:background .15s}
+  .btn:hover{background:var(--gold-hi);color:var(--on-gold)}
+  .btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--border);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--s3);background:var(--s1);color:var(--cream)}
+
+  /* Sections */
+  section{padding:40px 0}
+  .sechead{margin-bottom:22px}
+  .sechead .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+
+  .grid{display:grid;gap:16px}
+  .grid.c3{grid-template-columns:repeat(3,1fr)}
+  .grid.c2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:760px){.grid.c3,.grid.c2{grid-template-columns:1fr}}
+
+  .card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:22px}
+  .card h3{display:flex;align-items:baseline;gap:10px}
+  .card .tag{font-family:var(--mono);font-size:11px;color:var(--gold);border:1px solid var(--border);border-radius:8px;padding:2px 7px}
+  .card p{margin:0;color:var(--text);font-size:14.5px}
+  .card .trig{margin-top:12px;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+
+  .callout{background:var(--s1);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:14px;padding:20px 22px}
+  .callout h3{color:var(--cream)}
+  .callout code{font-family:var(--mono);font-size:12.5px;background:var(--s2);border:1px solid var(--border);border-radius:6px;padding:1px 6px;color:var(--gold)}
+
+  .layer{display:flex;gap:16px;align-items:flex-start}
+  .layer .badge{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--s2);border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--gold)}
+  .layer .body{flex:1 1 auto}
+  .layer .files{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px}
+
+  /* About / brand */
+  .about .card{padding:24px}
+  .about h3 .grad{background:linear-gradient(95deg,var(--ga),var(--gb),var(--gc));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .linklist{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:6px;font-size:14px}
+  .linklist a{display:inline-flex;align-items:center;gap:6px}
+
+  /* Footer */
+  footer{padding:44px 0 60px;margin-top:16px}
+  .monogram{font-family:var(--serif);font-style:italic;font-size:26px;
+    background:linear-gradient(95deg,var(--ga),var(--gb),var(--gc));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .foot-row{display:flex;gap:16px 26px;flex-wrap:wrap;align-items:center;margin:16px 0}
+  .foot-row a{color:var(--muted);font-size:14px}
+  .foot-row a:hover{color:var(--cream)}
+  .fineprint{color:var(--muted);font-size:12.5px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <span class="brandmark">pravo-logika</span>
+    <span class="spacer"></span>
+    <a class="navlink" href="#modes">Режимы</a>
+    <a class="navlink" href="#how">Устройство</a>
+    <a class="navlink" href="#author">Об авторе</a>
+    <a class="navlink" href="https://github.com/sofya-smirnova/pravo-logika">GitHub&nbsp;↗</a>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <div class="eyebrow">Skill · Claude Code · Cursor · Codex · MIT</div>
+  <h1 class="wordmark">pravo-logika</h1>
+  <p class="lede">Логика правового рассуждения на материале права РФ. Проверяет <b>форму</b> юридического вывода — субсумпцию, толкование, однозначность договора — так, как логик проверяет силлогизм.</p>
+  <div class="chips">
+    <span class="chip">v0.2.0</span>
+    <span class="chip">MIT</span>
+    <span class="chip">Русский</span>
+    <span class="chip">Работает локально</span>
+  </div>
+  <div class="cta">
+    <a class="btn" href="https://github.com/sofya-smirnova/pravo-logika">Открыть на GitHub ↗</a>
+    <a class="btn ghost" href="#how">Как устроено</a>
+  </div>
+</div>
+
+<div class="wrap"><hr class="hair"></div>
+
+<section id="boundary" class="wrap">
+  <div class="callout">
+    <h3>Не источник права</h3>
+    <p>Скилл проверяет, <b>как</b> построено рассуждение, а не <b>какова</b> норма. Номера статей и позиции судов по памяти он не подставляет: где вывод опирается на конкретную норму или практику, ставится флаг <code>[требует проверки: норма / практика]</code> — и проверка остаётся за человеком. Факт принимается как данность автора; пробелы в доказывании фиксируются отдельно от дефектов права.</p>
+  </div>
+</section>
+
+<section id="modes" class="wrap">
+  <div class="sechead">
+    <div class="kicker">Что делает</div>
+    <h2>Три режима</h2>
+  </div>
+  <div class="grid c3">
+    <div class="card">
+      <h3>Ревью <span class="tag">diagnose</span></h3>
+      <p>Разбор меморандума или правовой позиции: структура, субсумпция, толкование, каталог юридико-логических дефектов. Только диагностика — текст не переписывается.</p>
+      <div class="trig">«проверь правовую логику»</div>
+    </div>
+    <div class="card">
+      <h3>Правка <span class="tag">fix</span></h3>
+      <p>Переписывание с исправленной аргументацией: минимальные изменения, стиль автора сохранён, новые факты и нормы не вводятся — спорный вывод ослабляется или помечается флагом.</p>
+      <div class="trig">«поправь квалификацию»</div>
+    </div>
+    <div class="card">
+      <h3>Clause-check <span class="tag">contract</span></h3>
+      <p>Проверка договорной формулировки на логическую однозначность: определения, перечни, условия, союзы «и / или», пороги, кванторы, модальности.</p>
+      <div class="trig">«есть ли двусмысленность»</div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="wrap">
+  <div class="sechead">
+    <div class="kicker">Устройство</div>
+    <h2>Правовой слой поверх логического движка</h2>
+  </div>
+  <p class="muted" style="max-width:660px">Логический аппарат вынесен в отдельный слой и работает как набор подпрограмм: субсумпция вызывает проверку силлогизма, договорное определение — проверку деления понятия. Правовой слой — внешний контур поверх него.</p>
+  <div class="grid c2" style="margin-top:20px">
+    <div class="card">
+      <div class="layer">
+        <div class="badge">∴</div>
+        <div class="body">
+          <h3>Логический движок</h3>
+          <p>Классическая формальная логика: понятия и определения, суждения A/E/I/O, силлогизм, индукция и аналогия, законы мышления, каталог логических ошибок.</p>
+          <div class="files">references/logic/ · перенесён из logika (Челпанов)</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="layer">
+        <div class="badge">§</div>
+        <div class="body">
+          <h3>Правовой слой</h3>
+          <p>Норма и субсумпция, способы и пределы толкования, каталог юридико-логических дефектов, логика договорного текста, бремя доказывания и презумпции.</p>
+          <div class="files">references/norm · interpretation · legal-errors · contract · proof</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><hr class="hair"></div>
+
+<section id="author" class="wrap about">
+  <div class="sechead">
+    <div class="kicker">Об авторе и проекте</div>
+    <h2>Право, кованное поверх логики</h2>
+  </div>
+  <div class="grid c2">
+    <div class="card">
+      <h3>Софья Смирнова</h3>
+      <p>Юрист корпоративной практики и M&amp;A, руководитель практики AI&nbsp;&amp;&nbsp;Legal&nbsp;Tech. Работает там, где право встречается с кодом — от обезличивания персональных данных до логики правовых текстов. <span class="muted">pravo-logika вырос из этой работы: перенести аппарат классической логики на проверку формы юридического рассуждения.</span></p>
+      <div class="linklist">
+        <a href="https://moire-ai.tech">moire-ai.tech ↗</a>
+        <a href="https://t.me/forgednotwritten">Telegram: «Дамасские чернила» ↗</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="grad">Damascus Ink</span></h3>
+      <p>«Дамасские чернила» — авторская линия исследований и инструментов об ИИ в юридической практике и M&amp;A. Дамасская сталь куётся из слоёв — как здесь право куётся поверх логики. Разборы и заметки — в телеграм-канале.</p>
+      <div class="linklist">
+        <a href="https://damascus-ink.ru">damascus-ink.ru ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3><span class="grad">moire-ai.tech</span> — резонанс права с кодом</h3>
+    <p>Продуктовая площадка «moiré ai»: локальные ИИ-инструменты для бизнеса и юристов — обезличивание данных, транскрипция встреч, чат-боты, работа с документами. Всё работает офлайн, ничего не уходит в сеть без явного действия. <b>pravo-logika</b> — часть этой экосистемы: открытый скилл-инструмент под лицензией MIT.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <hr class="hair">
+  <div style="margin-top:26px" class="monogram">pravo-logika</div>
+  <div class="foot-row">
+    <a href="https://github.com/sofya-smirnova/pravo-logika">GitHub</a>
+    <a href="https://moire-ai.tech">moire-ai.tech</a>
+    <a href="https://damascus-ink.ru">damascus-ink.ru</a>
+    <a href="https://t.me/forgednotwritten">Telegram</a>
+  </div>
+  <p class="fineprint">
+    © 2026 Sofya Smirnova (правовой слой) · © 2026 Pavel Rykov (логический слой, скилл <a href="https://github.com/EvilFreelancer/logika">logika</a>, MIT).
+    Логический материал восходит к «Учебнику логики» Г.&nbsp;Челпанова (public domain). Лицензия проекта — MIT.<br>
+    Не является юридической консультацией и не заменяет источник права: нормы и практику проверяет человек.
+  </p>
+</footer>
+
+</body>
+</html>
