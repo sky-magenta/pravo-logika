@@ -13,9 +13,9 @@ desktop.ini
 __pycache__/
 *.pyc
 
-# Eval run artifacts (cases.jsonl is committed; results are not)
+# Eval run artifacts (cases.jsonl is committed; results/temp are not)
 /evals/results.json
-/evals/_selftest.txt
+/evals/_*.txt
 
 # Local scratch
 /scratch/
