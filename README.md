@@ -46,7 +46,6 @@ pravo-logika/
 │  ├─ validate_cases.py         # офлайн-проверка структуры и покрытия (pytest/CI)
 │  └─ run_evals.py              # прогон скилла через Claude API + грейдинг
 ├─ .claude-plugin/ .cursor-plugin/ .codex-plugin/
-├─ AGENTS.md
 ├─ README.md
 ├─ THIRD_PARTY_NOTICES.md       # атрибуция стороннего материала (logika, Челпанов)
 └─ LICENSE
