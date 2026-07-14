@@ -4,6 +4,10 @@
     "name": "Sofya Smirnova",
     "url": "https://damascus-ink.ru"
   },
+  "metadata": {
+    "description": "Маркетплейс Damascus Ink: открытые скиллы для юристов от Софьи Смирновой (право и код, M&A). Пока — pravo-logika.",
+    "version": "0.2.0"
+  },
   "plugins": [
     {
       "name": "pravo-logika",
