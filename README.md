@@ -62,7 +62,14 @@ pravo-logika/
 | Cursor        | `~/.cursor/skills/pravo-logika/`  |
 | OpenAI Codex  | `~/.codex/skills/pravo-logika/`   |
 
-**Как плагин (Claude Code)** — после публикации в каталог/маркетплейс.
+**Как плагин (Claude Code)** — репозиторий является маркетплейсом Claude Code:
+
+```
+/plugin marketplace add sky-magenta/pravo-logika
+/plugin install pravo-logika@damascus-ink
+```
+
+Проверка — `/plugin`. Плагин подключает и скилл (`SKILL.md` + `references/`), и слэш-команды `/pravo-logika:review`, `/pravo-logika:clause-check`.
 
 ## Вызов
 
