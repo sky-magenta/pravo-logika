@@ -14,7 +14,7 @@ from collections import Counter
 HERE = os.path.dirname(os.path.abspath(__file__))
 CASES_PATH = os.path.join(HERE, "cases.jsonl")
 
-MODES = {"review", "clause-check", "fix", "compare"}
+MODES = {"review", "clause-check", "fix", "compare", "norm"}
 EXPECTS = {"defect", "clean"}
 DIFFICULTIES = {"easy", "medium", "hard"}
 REQUIRED = {"id", "mode", "category", "difficulty", "input", "expect"}
