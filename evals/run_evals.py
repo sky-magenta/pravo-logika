@@ -40,6 +40,7 @@ SKILL_FILES = [
     "references/proof.md",
     "references/logic/concepts.md",
     "references/logic/judgments.md",
+    "references/logic/deontic.md",
     "references/logic/syllogism.md",
     "references/logic/induction.md",
     "references/logic/errors.md",
