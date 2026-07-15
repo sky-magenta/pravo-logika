@@ -26,7 +26,7 @@
 
 Структура скилла (мультиинструментные манифесты `.claude-plugin` / `.codex-plugin` / `.cursor-plugin`, формат команд, разметка референсов) также следует образцу `logika` / rpa-skills.
 
-**Что НЕ является производным от `logika`.** Правовой слой создан для настоящего проекта и является оригинальной работой [Sofya Smirnova](https://damascus-ink.ru) ([t.me/forgednotwritten](https://t.me/forgednotwritten)): `SKILL.md` (правовой движок, режимы, форматы), `references/norm.md`, `references/interpretation.md`, `references/legal-errors.md`, `references/contract.md`, `references/proof.md`, `commands/review.md`, `commands/clause-check.md`, `README.md`, `docs/index.html`.
+**Что НЕ является производным от `logika`.** Правовой слой и деонтический раздел логического слоя созданы для настоящего проекта и являются оригинальной работой [Sofya Smirnova](https://damascus-ink.ru) ([t.me/forgednotwritten](https://t.me/forgednotwritten)): `SKILL.md` (правовой движок, режимы, форматы), `references/norm.md`, `references/interpretation.md`, `references/legal-errors.md`, `references/contract.md`, `references/proof.md`, `references/logic/deontic.md` (деонтическая логика — материал новее «Учебника логики» и в `logika` отсутствует), `commands/review.md`, `commands/clause-check.md`, `README.md`, `docs/index.html`.
 
 **Текст лицензии MIT (`logika`):**
 

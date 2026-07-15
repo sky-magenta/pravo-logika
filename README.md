@@ -92,7 +92,7 @@ pravo-logika/
 
 ## Атрибуция
 
-Производная работа от скилла **[`logika`](https://github.com/EvilFreelancer/logika)** (Pavel Rykov, коллекция rpa-skills, MIT). Логический движок и файлы `references/logic/` перенесены оттуда. Логический материал восходит к «Учебнику логики» Г. Челпанова (public domain). Полная атрибуция стороннего материала — в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Производная работа от скилла **[`logika`](https://github.com/EvilFreelancer/logika)** (Pavel Rykov, коллекция rpa-skills, MIT). Логический движок и файлы `references/logic/` перенесены оттуда (кроме `logic/deontic.md` — деонтический раздел добавлен в настоящем проекте). Логический материал восходит к «Учебнику логики» Г. Челпанова (public domain). Полная атрибуция стороннего материала — в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 Правовой слой (`SKILL.md` и `references/*.md` верхнего уровня) — оригинальная работа [Софьи Смирновой](https://damascus-ink.ru) ([t.me/forgednotwritten](https://t.me/forgednotwritten)).
 
