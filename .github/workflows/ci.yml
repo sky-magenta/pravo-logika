@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test deps
+        run: python -m pip install --quiet pytest
+
+      - name: Manifests are valid JSON
+        run: |
+          python - <<'PY'
+          import json
+          for f in [
+              ".claude-plugin/plugin.json",
+              ".claude-plugin/marketplace.json",
+              ".codex-plugin/plugin.json",
+              ".cursor-plugin/plugin.json",
+          ]:
+              json.load(open(f, encoding="utf-8"))
+              print("ok:", f)
+          PY
+
+      - name: cases.jsonl is in sync with build_cases.py
+        run: |
+          python evals/build_cases.py
+          git diff --exit-code -- evals/cases.jsonl \
+            || (echo "::error::evals/cases.jsonl is stale — run 'python evals/build_cases.py' and commit"; exit 1)
+
+      - name: Eval set structure & coverage
+        run: pytest -q evals/validate_cases.py
