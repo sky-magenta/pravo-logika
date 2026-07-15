@@ -63,10 +63,42 @@ MODE_INSTRUCTIONS = {
 }
 
 # Сигналы «чисто» для быстрого (alias) грейдинга clean-примеров.
+# Даны основами (без окончаний), сверка идёт по нормализованному тексту — см. _norm.
 CLEAN_SIGNALS = [
-    "корректна", "однозначна", "дефектов не найдено", "не найдено дефект",
-    "неоднозначности не", "без дефектов", "дефекты не выявлены", "нарушений не",
+    "корректн", "однозначн", "дефектов не найд", "не найд дефект",
+    "неоднозначност не", "без дефект", "дефект не выявл", "нарушени не",
+    "дефектов нет", "не выдум", "правки не требует", "устранение не требует",
 ]
+
+# ── Нормализация для морфологически устойчивого сопоставления ──────────────
+# Русские алиасы страдают от склонений («закон тождества» ≠ «закона тождества»)
+# и типографики («floor и cap» ≠ «floor/cap»). Нормализуем регистр и пунктуацию,
+# а многословные алиасы сверяем по основам слов (первые 5 букв), а не буквально.
+_PUNCT = "«»„“”\"'`()[]{}<>.,;:!?/\\|—–-… "
+_TRANS = {ord(c): " " for c in _PUNCT}
+
+
+def _norm(s):
+    return " ".join(str(s).lower().translate(_TRANS).split())
+
+
+def _stems(needle):
+    # значимые слова алиаса → основы (первые 5 букв для слов длиннее 5)
+    out = []
+    for w in _norm(needle).split():
+        if len(w) <= 2:
+            continue
+        out.append(w[:5] if len(w) > 5 else w)
+    return out
+
+
+def _hit(needle, norm_text):
+    """Алиас найден, если целиком входит в текст ИЛИ все его основы присутствуют."""
+    n = _norm(needle)
+    if n and n in norm_text:
+        return True
+    stems = _stems(needle)
+    return bool(stems) and all(st in norm_text for st in stems)
 
 
 def read_skill_context():
@@ -109,10 +141,10 @@ def build_user_prompt(case):
 
 
 def grade_alias(case, output):
-    """Быстрый детерминированный грейдинг по алиасам."""
-    low = output.lower()
+    """Быстрый детерминированный грейдинг по алиасам (морфологически устойчивый)."""
+    norm = _norm(output)
     if case["expect"] == "clean":
-        hit = any(sig in low for sig in CLEAN_SIGNALS)
+        hit = any(_norm(sig) in norm for sig in CLEAN_SIGNALS)
         return hit, ("вердикт «чисто» найден" if hit else "не найден явный вердикт корректности/однозначности")
     # expect == defect
     needles = list(case.get("aliases", []))
@@ -120,7 +152,7 @@ def grade_alias(case, output):
         needles.append(case["defect_lat"])
     if case.get("defect_ru"):
         needles.append(case["defect_ru"])
-    matched = [n for n in needles if n.lower() in low]
+    matched = [n for n in needles if _hit(n, norm)]
     return (len(matched) > 0), ("совпало: " + ", ".join(matched[:3]) if matched else "ожидаемый дефект не назван")
 
 
