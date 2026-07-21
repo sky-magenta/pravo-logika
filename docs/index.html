@@ -102,6 +102,13 @@
   .layer .body{flex:1 1 auto}
   .layer .files{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px}
 
+  /* Install & ecosystem */
+  .codebox{background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;
+    font-family:var(--mono);font-size:13px;line-height:1.8;overflow-x:auto;color:var(--cream)}
+  .pathlist{font-family:var(--mono);font-size:12.5px;line-height:2.1;color:var(--cream);overflow-x:auto}
+  .pathlist span{color:var(--muted)}
+  .soon{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px dashed var(--border);border-radius:8px;padding:2px 7px}
+
   /* About */
   .about .card{padding:24px}
   .linklist{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:12px;font-size:14px;font-family:var(--sans)}
@@ -124,6 +131,8 @@
     <span class="spacer"></span>
     <a class="navlink" href="#modes">Режимы</a>
     <a class="navlink" href="#how">Устройство</a>
+    <a class="navlink" href="#install">Установка</a>
+    <a class="navlink" href="#eco">Экосистема</a>
     <a class="navlink" href="#author">Об авторе</a>
     <a class="navlink" href="https://damascus-ink.ru">damascus-ink.ru&nbsp;↗</a>
     <a class="navlink" href="https://github.com/sky-magenta/pravo-logika">GitHub&nbsp;↗</a>
@@ -140,7 +149,8 @@
     <span class="chip">референсы на русском</span>
   </div>
   <div class="cta">
-    <a class="btn" href="https://github.com/sky-magenta/pravo-logika">Открыть на GitHub ↗</a>
+    <a class="btn" href="#install">Установить</a>
+    <a class="btn ghost" href="https://github.com/sky-magenta/pravo-logika">Открыть на GitHub ↗</a>
     <a class="btn ghost" href="#how">Как устроено</a>
   </div>
   <p class="byline">Автор — <a href="https://damascus-ink.ru">Софья Смирнова</a>, советник корпоративной практики и M&amp;A в <a href="https://o2consult.com">O2&nbsp;Consulting</a>, основатель <a href="https://moire-ai.tech">Moire&nbsp;AI</a>.</p>
@@ -215,6 +225,55 @@
           <div class="files">references/norm · interpretation · legal-errors · contract · proof</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="install" class="wrap">
+  <div class="sechead">
+    <div class="kicker">Установка</div>
+    <h2>Две минуты до работы</h2>
+  </div>
+  <div class="grid c2">
+    <div class="card">
+      <h3>Как плагин <span class="tag">Claude Code</span></h3>
+      <p>Репозиторий является маркетплейсом Claude Code — плагин подключает скилл, референсы и все слэш-команды:</p>
+      <div class="codebox" style="margin-top:14px">/plugin marketplace add sky-magenta/pravo-logika<br>/plugin install pravo-logika@damascus-ink</div>
+      <div class="trig">проверка: /plugin → команды /pravo-logika:review · clause-check · compare · norm</div>
+    </div>
+    <div class="card">
+      <h3>Как папка-скилл <span class="tag">Claude Code · Cursor · Codex</span></h3>
+      <p>Скопируйте репозиторий в корень скиллов — имя папки должно совпадать с именем скилла:</p>
+      <div class="pathlist" style="margin-top:14px">
+        <span>Claude Code&nbsp;&nbsp;</span>~/.claude/skills/pravo-logika/<br>
+        <span>Cursor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>~/.cursor/skills/pravo-logika/<br>
+        <span>OpenAI Codex&nbsp;</span>~/.codex/skills/pravo-logika/
+      </div>
+      <div class="trig">вызов обычным запросом: «проверь правовую логику», «разбери меморандум»</div>
+    </div>
+  </div>
+</section>
+
+<section id="eco" class="wrap">
+  <div class="sechead">
+    <div class="kicker">Damascus Ink</div>
+    <h2>Семейство скиллов для юриста</h2>
+  </div>
+  <div class="grid c3">
+    <div class="card">
+      <h3>pravo-logika <span class="tag">вы здесь</span></h3>
+      <p>Валидность: следует ли вывод. Субсумпция, толкование, однозначность договора, разбор нормы, сравнение двух позиций.</p>
+      <div class="trig">сначала валидность — потом убедительность</div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/sky-magenta/pravo-ritorika" style="color:inherit">pravo-ritorika</a></h3>
+      <p>Убедительность: примет ли адресат. Линия спора, порядок аргументов, адаптация письменного текста, стресс-тест.</p>
+      <div class="trig"><a href="https://github.com/sky-magenta/pravo-ritorika">GitHub ↗</a> · <a href="https://sky-magenta.github.io/pravo-ritorika/">страница ↗</a></div>
+    </div>
+    <div class="card">
+      <h3>pravo-grammatika <span class="soon">на подходе</span></h3>
+      <p>Язык: как написано. Третий слой семейства — работа с самим юридическим письмом.</p>
+      <div class="trig"><a href="https://t.me/forgednotwritten">анонс — в канале ↗</a></div>
     </div>
   </div>
 </section>

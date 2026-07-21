@@ -5,7 +5,7 @@
     "url": "https://damascus-ink.ru"
   },
   "metadata": {
-    "description": "Маркетплейс Damascus Ink: открытые скиллы для юристов от Софьи Смирновой (право и код, M&A). Пока — pravo-logika.",
+    "description": "Маркетплейс Damascus Ink: открытые скиллы для юристов от Софьи Смирновой (право и код, M&A). Семейство: pravo-logika (валидность — этот репозиторий), pravo-ritorika (убедительность, отдельный репозиторий), на подходе — pravo-grammatika (язык).",
     "version": "0.5.0"
   },
   "plugins": [
