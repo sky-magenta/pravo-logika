@@ -42,9 +42,11 @@
   латинское имя, затем «как выглядит / почему дефект (со ссылкой на нарушенное правило) / как
   исправить / условный пример».
 - **Имя и версия.** Имя скилла — `pravo-logika` (поле `name` в `SKILL.md`). При содержательных
-  изменениях бампайте `version` синхронно в `SKILL.md`, трёх манифестах (`.claude-plugin`,
-  `.codex-plugin`, `.cursor-plugin`) и `.claude-plugin/marketplace.json`.
-- **Структура плагина.** Внутри `.claude-plugin/` — только `plugin.json` и `marketplace.json`.
+  изменениях бампайте `version` синхронно в `SKILL.md` и трёх манифестах (`.claude-plugin`,
+  `.codex-plugin`, `.cursor-plugin`).
+- **Структура плагина.** Внутри `.claude-plugin/` — только `plugin.json`. Маркетплейс семейства
+  вынесен в отдельный репозиторий [`sky-magenta/damascus-ink-plugins`](https://github.com/sky-magenta/damascus-ink-plugins)
+  (перечисляет все три скилла через github-источники) — здесь `marketplace.json` нет.
   `commands/`, `references/`, `SKILL.md` — в корне репозитория, не внутри `.claude-plugin/`.
 
 ## Тесты

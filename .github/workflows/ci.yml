@@ -25,7 +25,6 @@ jobs:
           import json
           for f in [
               ".claude-plugin/plugin.json",
-              ".claude-plugin/marketplace.json",
               ".codex-plugin/plugin.json",
               ".cursor-plugin/plugin.json",
           ]:
