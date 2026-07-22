@@ -107,6 +107,9 @@
     font-family:var(--mono);font-size:13px;line-height:1.8;overflow-x:auto;color:var(--cream)}
   .pathlist{font-family:var(--mono);font-size:12.5px;line-height:2.1;color:var(--cream);overflow-x:auto}
   .pathlist span{color:var(--muted)}
+  .steps{margin:10px 0 0;padding-left:22px;font-family:var(--serif);font-size:14.5px;color:var(--text)}
+  .steps li{margin-bottom:7px}
+  .steps b{color:var(--cream)}
   .soon{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px dashed var(--border);border-radius:8px;padding:2px 7px}
 
   /* About */
@@ -235,6 +238,18 @@
     <h2>Две минуты до работы</h2>
   </div>
   <div class="grid c2">
+    <div class="card" style="grid-column:1/-1">
+      <h3>В Claude Cowork <span class="tag">мышкой, без командной строки</span></h3>
+      <p>Cowork — рабочее пространство в приложении Claude (macOS и Windows; нужен платный план: Pro, Max, Team или Enterprise). Скилл ставится как плагин из этого репозитория:</p>
+      <ol class="steps">
+        <li>Откройте вкладку <b>Cowork</b> → в левой панели меню <b>Customize</b>.</li>
+        <li>Вкладка <b>Plugins</b> → в разделе <b>Personal plugins</b> нажмите <b>«+»</b> → <b>Add marketplace</b>.</li>
+        <li>Выберите <b>Add from a repository</b> и укажите <b>sky-magenta/pravo-logika</b>. Маркетплейс синхронизируется.</li>
+        <li>Найдите плагин <b>pravo-logika</b> → <b>Install</b>.</li>
+        <li>Готово: наберите <b>«/»</b> или нажмите <b>«+»</b> в чате — появятся команды /pravo-logika:…; либо просто попросите словами: «проверь правовую логику».</li>
+      </ol>
+      <div class="trig">маркетплейс общий для семейства — в нём же pravo-ritorika · <a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude">официальная инструкция ↗</a></div>
+    </div>
     <div class="card">
       <h3>Как плагин <span class="tag">Claude Code</span></h3>
       <p>Репозиторий является маркетплейсом Claude Code — плагин подключает скилл, референсы и все слэш-команды:</p>
