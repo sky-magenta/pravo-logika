@@ -21,3 +21,6 @@ __pycache__/
 /scratch/
 /tmp/
 *.log
+
+# Local-only developer notes (never commit)
+*.local.md
