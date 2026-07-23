@@ -1,9 +1,12 @@
 MIT License
 
 Copyright (c) 2026 Pavel Rykov — original "logika" skill (logic engine and the
-  references under references/logic/, distilled from G. Chelpanov's «Учебник логики»).
-Copyright (c) 2026 Sofya Smirnova — "pravo-logika" legal layer (norm/subsumption,
-  interpretation, legal-errors, contract, proof references, and the legal SKILL.md).
+  references under references/logic/ except deontic.md, distilled from
+  G. Chelpanov's «Учебник логики»).
+Copyright (c) 2026 Sofya Smirnova (https://t.me/forgednotwritten) — "pravo-logika"
+  legal layer (norm/subsumption, interpretation, legal-errors, contract, proof,
+  compare and time-and-conditions references, references/logic/deontic.md,
+  and the legal SKILL.md).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +33,8 @@ Attribution
 "pravo-logika" is a derivative of the "logika" skill by Pavel Rykov
 (https://github.com/EvilFreelancer/logika), part of the rpa-skills collection,
 licensed under MIT. The logic engine and the references under references/logic/
-are carried over from that project with minimal changes.
+(except references/logic/deontic.md, original to pravo-logika) are carried over
+from that project with minimal changes.
 
 The underlying logical material derives from G. Chelpanov's «Учебник логики»
 (public domain).
