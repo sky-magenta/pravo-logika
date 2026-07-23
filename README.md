@@ -102,7 +102,7 @@ pravo-logika/
 1. Откройте в Claude вкладку **Cowork**, затем в левой панели — меню **Customize** («Настроить»). В нём собраны плагины, скиллы и коннекторы.
 2. Перейдите на вкладку **Plugins** («Плагины»).
 3. В разделе **Personal plugins** нажмите **«+»** → **«Add marketplace»** («Добавить маркетплейс»).
-4. В открывшемся окне в поле **URL** введите `sky-magenta/damascus-ink-plugins` и нажмите **Sync** («Синхронизировать»). Маркетплейс синхронизируется.
+4. В открывшемся окне в поле **URL** введите `https://github.com/sky-magenta/damascus-ink-plugins` и нажмите **Sync** («Синхронизировать»). Маркетплейс синхронизируется.
 5. Найдите плагин **pravo-logika** и нажмите **Install** («Установить»). Рядом в списке — `pravo-ritorika` и `pravo-grammatika`, если нужны.
 6. Готово. Чтобы вызвать: наберите **«/»** или нажмите **«+»** в чате Cowork — появятся скилл `pravo-logika` и слэш-команды (`/pravo-logika:review`, `:clause-check`, `:compare`, `:norm`).
 7. Один маркетплейс `damascus-ink-plugins` содержит все три скилла тривиума (**pravo-logika**, **pravo-ritorika**, **pravo-grammatika**) — добавляется один раз, отдельные добавлять не нужно.
