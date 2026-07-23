@@ -57,6 +57,11 @@
 
   /* Hero */
   .hero{padding:52px 0 40px}
+  .cover{margin:30px auto 4px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--s1);box-shadow:0 10px 40px -24px rgba(0,0,0,.9)}
+  .cover img{display:block;width:100%;height:auto}
+  .cover figcaption{font-family:var(--serif);font-size:14px;color:var(--muted);text-align:center;padding:12px 18px;border-top:1px solid var(--border)}
+  .cover figcaption b{color:var(--gold);font-weight:400}
+  @media(max-width:640px){.cover{border-radius:12px}}
   .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--muted);margin-bottom:18px}
   .wordmark{font-family:var(--serif);font-weight:400;font-size:clamp(38px,8vw,68px);line-height:1.1;margin:0 0 18px;
     background:linear-gradient(95deg,var(--ga),var(--gb),var(--gc));
@@ -141,6 +146,11 @@
     <a class="navlink" href="https://github.com/sky-magenta/pravo-logika">GitHub&nbsp;↗</a>
   </div>
 </header>
+
+<figure class="cover wrap">
+  <img src="trivium-banner.png" alt="Ясность — три скилла для юриста: грамматика, логика, риторика" width="1600" height="900">
+  <figcaption><b>Ясность</b> формы, вывода и подачи — один тривиум, три скилла</figcaption>
+</figure>
 
 <div class="hero wrap">
   <div class="eyebrow">pravo-logika · skill для Claude Code · Cursor · Codex</div>
