@@ -1,7 +1,7 @@
 {
   "name": "pravo-logika",
   "description": "Formal logic of legal reasoning on Russian law: legal norm structure, subsumption (applying a norm to facts as a syllogism), interpretation methods, the law/fact distinction, and logical unambiguity of contract wording. Modes: legal review (pravo-logika:review), argument fixing, clause-check, comparison of two opposing positions (pravo-logika:compare), and norm analysis (pravo-logika:norm). Not a source of law — statutes and case law are flagged for human verification, never asserted from memory. Russian-language references; builds on the classical logic engine distilled from G. Chelpanov's textbook.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": {
     "name": "Sofya Smirnova",
     "url": "https://t.me/forgednotwritten"
