@@ -32,6 +32,9 @@ jobs:
               print("ok:", f)
           PY
 
+      - name: Codex package layout
+        run: python evals/validate_codex_plugin.py
+
       - name: cases.jsonl is in sync with build_cases.py
         run: |
           python evals/build_cases.py
