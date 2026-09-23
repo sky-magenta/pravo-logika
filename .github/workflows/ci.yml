@@ -32,6 +32,30 @@ jobs:
               print("ok:", f)
           PY
 
+      - name: Descriptions fit the 1024-char limit
+        run: |
+          python - <<'PY2'
+          import json, sys
+          LIMIT = 1024
+          for f in [".claude-plugin/plugin.json", ".codex-plugin/plugin.json", ".cursor-plugin/plugin.json"]:
+              desc = json.load(open(f, encoding="utf-8"))["description"]
+              if len(desc) > LIMIT:
+                  print(f"::error::{f}: description is {len(desc)} chars > {LIMIT}")
+                  sys.exit(1)
+          lines = open("SKILL.md", encoding="utf-8").read().splitlines()
+          start = lines.index("description: >")
+          folded = []
+          for line in lines[start + 1:]:
+              if not line.startswith("  "):
+                  break
+              folded.append(line.strip())
+          desc = " ".join(folded)
+          if len(desc) > LIMIT:
+              print(f"::error::SKILL.md: description is {len(desc)} chars > {LIMIT}")
+              sys.exit(1)
+          print("ok: descriptions within limit")
+          PY2
+
       - name: Codex package layout
         run: python evals/validate_codex_plugin.py
 
